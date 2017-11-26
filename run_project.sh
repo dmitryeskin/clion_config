@@ -3,7 +3,6 @@
 
 genRunScript()
 {
-
     UID=`stat -c "%u" ~`
     GID=`stat -c "%g" ~`
 
@@ -15,8 +14,8 @@ genRunScript()
 		rm -rf /prg/build/devel/*
 
 		chown -R $UID:$GID /root /prg /work /script
-		echo ":x:""$UID":"$GID""::/root:/bin/bash" >> /etc/passwd
-		sudo -u \#"$UID" scl enable onixs-devtoolset "/work/bin/clion.sh /prg/CMakeLists.txt"
+		echo ":x:$UID:$GID::/root:/bin/bash" >> /etc/passwd
+		sudo -u \#$UID scl enable onixs-devtoolset "/work/bin/clion.sh /prg/CMakeLists.txt"
 		EOF
 
     chmod +x $scriptPath/$scriptName
