@@ -4,9 +4,9 @@ work
     |       └ codeStyleSettings.xml
     ├ Clion
     |   ├ clion-2017.2.3
-    |   ├ SharedConfig
-    |   |   ├ CLion2017.2
-    |   |   └ userPrefs
-    |   └ run_on_docker.sh
+    |   └ SharedConfig
+    |       ├ CLion2017.2
+    |       └ userPrefs
+    |
     |
     └ run_project.sh
