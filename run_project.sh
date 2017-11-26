@@ -63,7 +63,7 @@ docker run --rm -it                                                             
                                                                                                     \
 -v /tmp/$prgName:/root/.CLion2017.2/system/                                                         \
 -v $prgPath/.cash/caches:/root/.CLion2017.2/system/caches                                           \
--v $prgPath/.cash/index:/root/.CLion2017.2/system/index                                             \
+-v $prgPath/.cash/index/.persistent:/root/.CLion2017.2/system/index/.persistent                     \
                                                                                                     \
 -v $prgPath:/prg                                                                                    \
 -v $outputPath:/prg/build/devel                                                                     \
