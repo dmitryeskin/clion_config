@@ -1,14 +1,14 @@
 #!/bin/sh
 
-
 prgName=$1
-#prgName=eurotlx
 os=centos/7
+
+envName=$prgName
 
 
 prgPath=/home/dmitry/Data/work/$prgName
 
-#outputDir=/home/dmitry/Data/work/output
+
 #ramdrv
 outputDir=/tmp/DevOutput
 
@@ -46,11 +46,5 @@ docker run --rm -it                                                             
                                                                                                     \
 -v $prgPath:/prg                                                                                    \
 -v $outputPath:/prg/build/devel                                                                     \
-onixs-docker-images.jfrog.io/$os/devel/ui/$prgName                                                  \
+onixs-docker-images.jfrog.io/$os/devel/ui/$envName                                                  \
 /script/run_on_docker.sh
-
-
-
-
-#/work/bin/clion.sh /prg/CMakeLists.txt
-
