@@ -61,6 +61,10 @@ docker run --rm -it                                                             
 -v $clionPath/SharedConfig/userPrefs:/root/.java/.userPrefs/jetbrains                               \
 -v $scriptPath:/script                                                                              \
                                                                                                     \
+-v /tmp/$prgName:/root/.CLion2017.2/system/                                                         \
+-v $prgPath/.cash/caches:/root/.CLion2017.2/system/caches                                           \
+-v $prgPath/.cash/index:/root/.CLion2017.2/system/index                                             \
+                                                                                                    \
 -v $prgPath:/prg                                                                                    \
 -v $outputPath:/prg/build/devel                                                                     \
 onixs-docker-images.jfrog.io/$os/devel/ui/$envName                                                  \
