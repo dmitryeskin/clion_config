@@ -40,8 +40,7 @@ clionPath=/home/dmitry/Data/work/Clion
 scriptPath=/tmp/Script
 scriptName=run_on_docker.sh
 
-[ -f $outputPath ] && mkdir $outputPath
-[ -f $scriptPath/$scriptName ] && genRunScript
+[ -f $scriptPath/$scriptName ] || genRunScript
 
 
 echo "os:" $os
@@ -50,6 +49,7 @@ echo "projet output:" $outputPath
 echo ""
 
 xhost +local:
+
 
 
 docker run --rm -it                                                                                 \
