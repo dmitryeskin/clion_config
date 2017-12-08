@@ -14,7 +14,7 @@ cat << EOF > test.cpp
 #include <$f>
 int main(){return 0;}
 EOF
-g++ test.cpp -o test.o -I$checkedDir -I/prg/build/devel/debug/include
+g++ test.cpp -o test.o -I$checkedDir -I/prg/build/devel/debug/include 2>&1 | grep -ve 'test.cpp'
 rm -rf test.*
 
 done
