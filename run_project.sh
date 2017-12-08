@@ -13,7 +13,7 @@ genRunScript()
 
 		rm -rf /prg/build/devel/*
 
-		chown -R $UID:$GID /root /prg /work /script
+		chown -R $UID:$GID /root /prg /work /script /tools
 		echo ":x:$UID:$GID::/root:/bin/bash" >> /etc/passwd
 		sudo -u \#$UID scl enable onixs-devtoolset "/work/bin/clion.sh /prg/CMakeLists.txt"
 		EOF
@@ -28,14 +28,15 @@ os=centos/7
 envName=$prgName
 
 
-prgPath=/home/dmitry/Data/work/$prgName
+prgPath=~/Data/work/$prgName
+toolsPath=~/Data/work/clion_config/tools
 
 
 #ramdrv
 outputDir=/tmp/DevOutput
 
 outputPath=$outputDir/$prgName
-clionPath=/home/dmitry/Data/work/Clion
+clionPath=~/Data/work/Clion
 
 scriptPath=/tmp/Script
 scriptName=run_on_docker.sh
@@ -66,6 +67,9 @@ docker run --rm -it                                                             
 -v $prgPath/.cash/index/.persistent:/root/.CLion2017.3/system/index/.persistent                     \
                                                                                                     \
 -v $prgPath:/prg                                                                                    \
+                                                                                                    \
+-v $toolsPath:/tools                                                                                \
+                                                                                                    \
 -v $outputPath:/prg/build/devel                                                                     \
 onixs-docker-images.jfrog.io/$os/devel/ui/$envName                                                  \
 /script/$scriptName
