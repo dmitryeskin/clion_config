@@ -25,7 +25,12 @@ genRunScript()
 prgName=$1
 os=centos/7
 
-envName=$prgName
+if [ $2 != "" ]; then
+    envName=$2
+else
+    envName=$prgName
+fi
+
 
 
 prgPath=~/Data/work/$prgName
