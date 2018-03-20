@@ -33,7 +33,7 @@ else
     envName=$2
 fi
 
-echo $envName
+
 
 prgPath=~/Data/work/$prgName
 toolsPath=~/Data/work/clion_config/tools

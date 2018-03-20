@@ -5,4 +5,4 @@ prgName=bats-pitch
 
 echo "Opening "$prgName
 
-../run_project.sh $prgName $prgName
+../run_project.sh $prgName $prgName"_cxx11"
