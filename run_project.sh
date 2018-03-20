@@ -25,13 +25,15 @@ genRunScript()
 prgName=$1
 os=centos/7
 
-if [ $2 != "" ]; then
-    envName=$2
-else
+if [ -z "$2" ]; then
+    echo "using default env"
     envName=$prgName
+else
+    echo "using env: "$2
+    envName=$2
 fi
 
-
+echo $envName
 
 prgPath=~/Data/work/$prgName
 toolsPath=~/Data/work/clion_config/tools
