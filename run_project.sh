@@ -25,6 +25,16 @@ genRunScript()
 prgName=$1
 os=centos/7
 
+
+if [ -z "$3" ]; then
+    echo "using default dts"
+    dts=""
+else
+    echo "using dts "$3
+    dts=$3
+fi
+
+
 if [ -z "$2" ]; then
     echo "using default env"
     envName=$prgName
@@ -78,5 +88,5 @@ docker run --rm -it                                                             
 -v $toolsPath:/tools                                                                                \
                                                                                                     \
 -v $outputPath:/prg/build/devel                                                                     \
-onixs-docker-images.jfrog.io/$os/devel/ui/$envName                                                  \
+onixs-docker-images.jfrog.io/$os$dts/devel/ui/$envName                                                  \
 /script/$scriptName
