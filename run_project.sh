@@ -35,7 +35,7 @@ genRunScript()
 
 		rm -rf /prg/build/devel/*
 
-		chown -R $UID:$GID /root /prg /work /script /tools
+		chown -R $UID:$GID /root /prg /work /script /tools /tmp
 		echo ":x:$UID:$GID::/root:/bin/bash" >> /etc/passwd
 		sudo -u \#$UID scl enable $optional_dts onixs-devtoolset "/work/bin/clion.sh /prg/CMakeLists.txt"
 		EOF
