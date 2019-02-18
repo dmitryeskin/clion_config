@@ -3,9 +3,9 @@ work
     |   └ .idea
     |       └ codeStyleSettings.xml
     ├ Clion
-    |   ├ clion-2017.2.3
+    |   ├ clion-2018.3
     |   └ SharedConfig
-    |       ├ CLion2017.2
+    |       ├ CLion2018.3
     |       └ userPrefs
     |
     |

@@ -82,18 +82,18 @@ xhost +local:
 
 
 
-docker run --rm -it                                                                                 \
+docker run --rm -it --privileged                                                                    \
 -e DISPLAY=unix$DISPLAY                                                                             \
 --security-opt seccomp=unconfined                                                                   \
 -v /tmp/.X11-unix:/tmp/.X11-unix                                                                    \
--v $clionPath/clion-2017.3:/work                                                                    \
--v $clionPath/SharedConfig/CLion2017.3:/root/.CLion2017.3                                           \
+-v $clionPath/clion-2018.3:/work                                                                    \
+-v $clionPath/SharedConfig/CLion2018.3:/root/.CLion2018.3                                           \
 -v $clionPath/SharedConfig/userPrefs:/root/.java/.userPrefs/jetbrains                               \
 -v $scriptPath:/script                                                                              \
                                                                                                     \
--v /tmp/$prgName:/root/.CLion2017.3/system/                                                         \
--v $prgPath/.cash/caches:/root/.CLion2017.3/system/caches                                           \
--v $prgPath/.cash/index/.persistent:/root/.CLion2017.3/system/index/.persistent                     \
+-v /tmp/$prgName:/root/.CLion2018.3/system/                                                         \
+-v $prgPath/.cash/caches:/root/.CLion2018.3/system/caches                                           \
+-v $prgPath/.cash/index/.persistent:/root/.CLion2018.3/system/index/.persistent                     \
                                                                                                     \
 -v $prgPath:/prg                                                                                    \
                                                                                                     \
