@@ -5,7 +5,7 @@ work
     ├ Clion
     |   ├ clion-2018.3
     |   └ SharedConfig
-    |       ├ CLion2018.3
+    |       ├ CLion
     |       └ userPrefs
     |
     |

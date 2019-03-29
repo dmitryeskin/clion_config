@@ -87,11 +87,11 @@ docker run --rm -it --privileged                                                
 --security-opt seccomp=unconfined                                                                   \
 -v /tmp/.X11-unix:/tmp/.X11-unix                                                                    \
 -v $clionPath/$version:/work                                                                        \
--v $clionPath/SharedConfig/$version:/root/.$version                                                 \
+-v $clionPath/SharedConfig/CLion:/root/.$version                                                    \
 -v $clionPath/SharedConfig/userPrefs:/root/.java/.userPrefs/jetbrains                               \
 -v $scriptPath:/script                                                                              \
                                                                                                     \
--v $clionPath/SharedConfig/$version/consentOptions:/root/.$version/system/consentOptions            \
+-v $clionPath/SharedConfig/CLion/consentOptions:/root/.$version/system/consentOptions            \
 -v /tmp/$prgName:/root/.$version/system/                                                            \
 -v $prgPath/.cash/caches:/root/.$version/system/caches                                              \
 -v $prgPath/.cash/index/.persistent:/root/.$version/system/index/.persistent                        \
