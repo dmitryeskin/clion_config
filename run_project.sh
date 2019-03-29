@@ -80,7 +80,7 @@ echo ""
 
 xhost +local:
 
-version=CLion2018.3
+version=CLion2019.1
 
 docker run --rm -it --privileged                                                                    \
 -e DISPLAY=unix$DISPLAY                                                                             \
@@ -91,7 +91,7 @@ docker run --rm -it --privileged                                                
 -v $clionPath/SharedConfig/userPrefs:/root/.java/.userPrefs/jetbrains                               \
 -v $scriptPath:/script                                                                              \
                                                                                                     \
--v $clionPath/SharedConfig/CLion/consentOptions:/root/.$version/system/consentOptions            \
+-v $clionPath/SharedConfig/CLion/consentOptions:/root/.$version/system/consentOptions               \
 -v /tmp/$prgName:/root/.$version/system/                                                            \
 -v $prgPath/.cash/caches:/root/.$version/system/caches                                              \
 -v $prgPath/.cash/index/.persistent:/root/.$version/system/index/.persistent                        \
