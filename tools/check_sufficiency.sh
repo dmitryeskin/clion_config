@@ -12,7 +12,7 @@ do
 echo -e $GREEN $f $NC
 
 echo "#include <$f>" |                                                                              \
-g++ -x c++ -std=c++03 -fsyntax-only -I$checkedDir -I/prg/build/devel/debug/include - 2>&1 |         \
+g++ -x c++ -std=c++03 -fsyntax-only -I. -I/prg/build/devel/debug/include - 2>&1 |         \
 grep -ve '<stdin>' |                                                                                \
 sed -e 's/\(.*error.*\)/\o033[31m\1\o033[0m/'
 
