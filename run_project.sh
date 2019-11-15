@@ -80,8 +80,9 @@ echo ""
 
 xhost +local:
 
-version=CLion2019.1
+version=CLion2019.2
 
+#--net=host                                                                                          \
 docker run --rm -it --privileged                                                                    \
 -e DISPLAY=unix$DISPLAY                                                                             \
 --security-opt seccomp=unconfined                                                                   \
