@@ -12,7 +12,9 @@ fi
 
 
 optional_dts=''
-if echo $os | grep -q "/dts/4"; then
+if echo $os | grep -q "/dts/7"; then
+    optional_dts='devtoolset-7'
+elif echo $os | grep -q "/dts/4"; then
     optional_dts='devtoolset-4'
 elif echo $os | grep -q "/dts/2"; then
     optional_dts='devtoolset-2'
@@ -21,7 +23,7 @@ elif echo $os | grep -q "/dts/"; then
     exit 1;
 fi
 
-
+#make shure X_SCLS env is not override in Clion!
 
 genRunScript()
 {
@@ -69,7 +71,11 @@ scriptName=run_on_docker.sh
 
 echo "scriptPath:" $scriptPath
 
-[ -f $scriptPath/$scriptName ] || genRunScript
+#[ -f $scriptPath/$scriptName ] || 
+rm -rf $scriptPath/$scriptName
+genRunScript
+
+
 
 
 echo "os:" $os
