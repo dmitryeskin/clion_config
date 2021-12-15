@@ -12,7 +12,9 @@ fi
 
 
 optional_dts=''
-if echo $os | grep -q "/dts/7"; then
+if echo $os | grep -q "/dts/9"; then
+    optional_dts='devtoolset-9'
+elif echo $os | grep -q "/dts/7"; then
     optional_dts='devtoolset-7'
 elif echo $os | grep -q "/dts/4"; then
     optional_dts='devtoolset-4'
@@ -86,27 +88,37 @@ echo ""
 
 xhost +local:
 
-version=CLion2019.2
+version=CLion2021.3
+#https://www.jetbrains.com/help/clion/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#logs-directory
 
-#--net=host                                                                                          \
+#--net=host                                                                                         \
 docker run --rm -it --privileged                                                                    \
+--net=host \
 -e DISPLAY=unix$DISPLAY                                                                             \
 --security-opt seccomp=unconfined                                                                   \
 -v /tmp/.X11-unix:/tmp/.X11-unix                                                                    \
 -v $clionPath/$version:/work                                                                        \
--v $clionPath/SharedConfig/CLion:/root/.$version                                                    \
 -v $clionPath/SharedConfig/userPrefs:/root/.java/.userPrefs/jetbrains                               \
 -v $scriptPath:/script                                                                              \
                                                                                                     \
--v $clionPath/SharedConfig/CLion/consentOptions:/root/.$version/system/consentOptions               \
--v /tmp/$prgName:/root/.$version/system/                                                            \
--v $prgPath/.cash/caches:/root/.$version/system/caches                                              \
--v $prgPath/.cash/index/.persistent:/root/.$version/system/index/.persistent                        \
                                                                                                     \
 -v $prgPath:/prg                                                                                    \
                                                                                                     \
 -v $toolsPath:/tools                                                                                \
-                                                                                                    \
+ \
+-v $clionPath/SharedConfig/JetBrains:/root/.config/JetBrains/$version                              \
+-v $clionPath/SharedConfig/share:/root/.local/share/JetBrains/$version                              \
+-v $clionPath/SharedConfig/JetBrains/consentOptions:/root/.local/share/JetBrains/consentOptions     \
+\
+\
+-v $prgPath/.cash:/root/.cache/JetBrains/$version                                              \
+-v $clionPath/SharedConfig/JetBrains/log:/root/.config/JetBrains/$version/log                  \
+-v $prgPath/.cash/tasks:/root/.config/JetBrains/$version/tasks                                 \
+-v $prgPath/.cash/workspace:/root/.config/JetBrains/$version/workspace                         \
+\
+\
+\
+\
 -v $outputPath:/prg/build/devel                                                                     \
 onixs-docker-images.jfrog.io/$os/devel/ui/$envName                                                  \
 /script/$scriptName
